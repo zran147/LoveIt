@@ -10,7 +10,11 @@
 $global-background-color-dark: #141414;
 $header-background-color-dark: #1f1f1f;
 $table-background-color-dark:  #171717;
-$code-background-color-dark:   #2a2a2a;
+$code-background-color-dark:   #232323;
+
+// Code block header bar (consumed by _custom.scss). Slightly darker than the
+// code body (#222222), but not as dark as the theme's derived #131313/#1a1a1a.
+$code-header-background-dark: #1d1d1d;
 
 // Borders / separators
 $global-border-color-dark: #2d2011;

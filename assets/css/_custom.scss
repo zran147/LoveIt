@@ -9,10 +9,11 @@
 .img-row {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--img-row-gap, 4rem);
+  column-gap: var(--img-row-gap, 4rem);
+  row-gap: 1rem;
   align-items: flex-start;
   justify-content: center;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
 .img-row figure {
@@ -89,6 +90,17 @@ $heading-mark-color-dark: null !default;
   }
 }
 
+// A bit more room after the mark glyph for all content headings.
+.single .content > h2 > .header-mark::before {
+  margin-right: .5rem;
+}
+.single .content > h3 > .header-mark::before,
+.single .content > h4 > .header-mark::before,
+.single .content > h5 > .header-mark::before,
+.single .content > h6 > .header-mark::before {
+  margin-right: .6rem;
+}
+
 // TOC line + glyph color in dark mode. Palettes may set $toc-border-color-dark.
 $toc-border-color-dark: null !default;
 @if $toc-border-color-dark != null {
@@ -130,4 +142,145 @@ $fixed-button-background-dark: null !default;
   [theme=dark] .fixed-button {
     background: $fixed-button-background-dark;
   }
+}
+
+// Code block header bar + mobile TOC title bar.
+// Palettes may set $code-header-background-dark.
+$code-header-background-dark: null !default;
+@if $code-header-background-dark != null {
+  [theme=dark] .single .content .code-block .code-header,
+  [theme=dark] .single .content .code-block.open .code-header,
+  [theme=dark] #toc-static .toc-title,
+  [theme=dark] #toc-static.open .toc-title {
+    background: $code-header-background-dark;
+  }
+}
+
+// More room before/after the mobile (static) table of contents.
+#toc-static {
+  margin: 1.5rem 0;
+}
+
+// Slightly larger table of contents (title + entries).
+.toc .toc-title {
+  font-size: 1.4rem;
+  letter-spacing: .03em;
+}
+.toc .toc-content {
+  font-size: 1.1rem;
+  letter-spacing: .02em;
+}
+
+// Wider letter spacing on the navbar title.
+.header-title {
+  letter-spacing: .06em;
+}
+
+// Offset the article left: left/right margins differ by 12rem (a 6rem shift),
+// 18% being the centred margin for the theme's 64% width.
+.page.single {
+  max-width: 1200px;
+  margin-left: calc(18% - 6rem);
+  margin-right: calc(18% + 6rem);
+}
+
+// Ultrawide: once the 1200px max-width caps the article, the 18% margins no
+// longer centre it, so centre it explicitly (~50% - 600px). The left/right
+// difference is stepped down as the viewport grows.
+@media (min-width: 1900px) {
+  .page.single {
+    margin-left: calc(50% - 600px - 7rem);
+    margin-right: auto;
+  }
+}
+@media (min-width: 2560px) {
+  .page.single {
+    margin-left: calc(50% - 600px - 2rem);
+    margin-right: auto;
+  }
+}
+@media (min-width: 3200px) {
+  .page.single {
+    margin-left: calc(50% - 600px - 1rem);
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 1280px) {
+  .page {
+    width: 60%;
+  }
+}
+
+// Below the 960px breakpoint the sidebar TOC is hidden (the theme switches to
+// the static/mobile TOC), so drop the offset and just center the article.
+@media (max-width: 960px) {
+  .page.single {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+#toc-auto {
+  margin-left: 2rem;
+}
+
+// Post meta links (categories) use the muted/secondary color.
+.single .post-meta a,
+.single .post-meta a::before,
+.single .post-meta a::after {
+  color: $global-font-secondary-color;
+}
+.single .post-meta a:active,
+.single .post-meta a:hover {
+  color: $global-font-color;
+}
+[theme=dark] .single .post-meta a,
+[theme=dark] .single .post-meta a::before,
+[theme=dark] .single .post-meta a::after {
+  color: $global-font-secondary-color-dark;
+}
+[theme=dark] .single .post-meta a:active,
+[theme=dark] .single .post-meta a:hover {
+  color: $global-font-color-dark;
+}
+
+// Post title larger than the in-content headings (in-content h1 is unstyled by
+// the theme and falls back to the browser default 2rem).
+.single .single-title {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;  // gap before the date line
+  letter-spacing: .02em;  // a teeny bit
+}
+
+// Tighten the gap between the date line and the categories line a touch.
+.single .post-meta .post-meta-line + .post-meta-line {
+  margin-top: -0.2rem;
+}
+
+// A bit more space after the post meta (categories) line.
+.single .post-meta {
+  margin-bottom: 1rem;
+  font-size: 14px;  // date + categories lines
+}
+
+// A little more room above standalone images in post content
+// (the `>` keeps it off the figures inside an `image-row`).
+.single .content > figure {
+  margin-top: 1.5rem;
+}
+.single .content p > img {
+  margin-top: 1rem;
+}
+
+// Uniform space before every content heading (h1..h6), matching the h1 -> h2 gap
+// (~1.34rem: the unstyled h1's 0.67em bottom margin at 2em font size).
+.single .content h1,
+.single .content h2,
+.single .content h3,
+.single .content h4,
+.single .content h5,
+.single .content h6 {
+  margin-top: 2rem;
+  letter-spacing: .02em;
 }
