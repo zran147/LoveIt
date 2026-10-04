@@ -54,7 +54,7 @@
                 {{- end -}}
                 {{- with .Lastmod -}}
                     {{- if .After $.PublishDate -}}
-                        <i class="fas fa-history" aria-hidden="true"></i>&nbsp;{{ dict "Date" (.Format ($.Site.Params.dateformat | default "2006-01-02")) | T "lastModified" }}&nbsp;
+                        <i class="fas fa-history" aria-hidden="true"></i>&nbsp;{{ dict "Date" (.Format ($.Site.Params.dateformat | default "2006-01-02")) | T "lastUpdated" }}&nbsp;
                     {{- end -}}
                 {{- end -}}
                 <i class="fas fa-pencil-alt" aria-hidden="true"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;

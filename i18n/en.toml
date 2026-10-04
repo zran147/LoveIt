@@ -130,8 +130,8 @@ other = "Author"
 [updatedOnDate]
 other = "Updated on {{ .Date }}"
 
-[lastModified]
-other = "Last modified {{ .Date }}"
+[lastUpdated]
+other = "Last updated {{ .Date }}"
 
 [readMarkdown]
 other = "Read Markdown"
