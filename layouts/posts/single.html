@@ -52,6 +52,11 @@
                 {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
                     <i class="far fa-calendar-alt" aria-hidden="true"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
                 {{- end -}}
+                {{- with .Lastmod -}}
+                    {{- if .After $.PublishDate -}}
+                        <i class="fas fa-history" aria-hidden="true"></i>&nbsp;{{ dict "Date" (.Format ($.Site.Params.dateformat | default "2006-01-02")) | T "lastModified" }}&nbsp;
+                    {{- end -}}
+                {{- end -}}
                 <i class="fas fa-pencil-alt" aria-hidden="true"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
                 <i class="far fa-clock" aria-hidden="true"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
                 {{- $comment := .Scratch.Get "comment" | default dict -}}

@@ -131,6 +131,9 @@ other = "Penulis"
 [updatedOnDate]
 other = "Diperbarui pada {{ .Date }}"
 
+[lastModified]
+other = "Terakhir diubah {{ .Date }}"
+
 [readMarkdown]
 other = "Baca Markdown"
 
