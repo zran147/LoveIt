@@ -3,34 +3,49 @@
 // 覆盖变量
 // ==============================
 
-// Palette: #00115e  #002254  #00334a  #004440  #005435  #00652b  #007621
-// Deep blue -> green ramp (all dark) -> light theme.
-// Derived: near-white page #eef6ef + panel #d9ebdc.
+// Light palette: #f1e1c2 #f3dbbb #f5d5b4 #f7cfad #f8c8a6 #fac29f #fcbc98 (beige)
+// Dark  palette: #08203e #152f4c #223f5a #2f4e69 #3b5d77 #486d85 #557c93 (navy -> steel)
 
-// Backgrounds
-$global-background-color: #eef6ef;   // derived near-white
-$header-background-color: #d9ebdc;   // derived
-$table-background-color:  #d9ebdc;
-$code-background-color:   #d9ebdc;
+// ---------- Light ---------- //
+$global-background-color: #f1e1c2;
+$header-background-color: #f3dbbb;
+$table-background-color:  #f5d5b4;
+$code-background-color:   #f7cfad;
+$search-background-color: #f8c8a6;
+$global-border-color:     #fcbc98;
+$table-thead-color:       #f3dbbb;
 
-// Borders / separators
-$global-border-color: #007621;       // green
-$table-thead-color:   #d9ebdc;
+$global-font-color:           #4a3620;  // derived ink
+$global-font-secondary-color: #8a7355;  // derived
 
-// Raised / interactive surfaces
-$search-background-color: #d9ebdc;
+$global-link-color:              #9c5212;  // derived
+$global-link-hover-color:        #4a3620;
+$header-hover-color:             #9c5212;
+$single-link-color:              #9c5212;
+$single-link-hover-color:        #4a3620;
+$pagination-link-color:          #9c5212;
+$pagination-link-hover-color:    #4a3620;
+$blockquote-color:               #fac29f;
+$code-color:                     #9c5212;
 
-// Text
-$global-font-color:           #00115e;  // deep blue ink
-$global-font-secondary-color: #005435;  // green
+// ---------- Dark ---------- //
+$global-background-color-dark: #08203e;  // darkest navy
+$header-background-color-dark: #152f4c;
+$table-background-color-dark:  #223f5a;
+$code-background-color-dark:   #152f4c;
+$search-background-color-dark: #2f4e69;
+$global-border-color-dark:     #3b5d77;
+$table-thead-color-dark:       #486d85;
 
-// Links / accents
-$global-link-color:              #00652b;  // green
-$global-link-hover-color:        #00115e;
-$header-hover-color:             #00652b;
-$single-link-color:              #00652b;
-$single-link-hover-color:        #00115e;
-$pagination-link-color:          #00652b;
-$pagination-link-hover-color:    #00115e;
-$blockquote-color:               #00334a;  // teal
-$code-color:                     #00652b;
+$global-font-color-dark:           #dce6f0;  // derived near-white blue
+$global-font-secondary-color-dark: #8fa6ba;  // derived muted
+
+$global-link-color-dark:              #7fb0d6;  // derived light blue
+$global-link-hover-color-dark:        #dce6f0;
+$header-hover-color-dark:             #7fb0d6;
+$single-link-color-dark:              #7fb0d6;
+$single-link-hover-color-dark:        #dce6f0;
+$pagination-link-color-dark:          #7fb0d6;
+$pagination-link-hover-color-dark:    #dce6f0;
+$blockquote-color-dark:               #557c93;  // steel
+$code-color-dark:                     #7fb0d6;
