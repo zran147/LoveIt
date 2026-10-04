@@ -4,50 +4,33 @@
 // ==============================
 
 // Palette: #00115e  #002254  #00334a  #004440  #005435  #00652b  #007621
-// Deep blue -> green ramp (all dark).
-// Dark uses the palette surfaces + derived light ink; light uses a derived near-white.
-// Derived: light #eef6ef / #d9ebdc; dark ink #cdebd2 / #8fc79a / #4ad46a.
+// Deep blue -> green ramp (all dark) -> light theme.
+// Derived: near-white page #eef6ef + panel #d9ebdc.
 
-// ---------- Light ---------- //
-$global-background-color:       #eef6ef;  // derived near-white
-$header-background-color:       #d9ebdc;  // derived
-$table-background-color:        #d9ebdc;
-$code-background-color:         #d9ebdc;
-$global-border-color:           #007621;  // green
-$table-thead-color:             #d9ebdc;
-$search-background-color:       #d9ebdc;
+// Backgrounds
+$global-background-color: #eef6ef;   // derived near-white
+$header-background-color: #d9ebdc;   // derived
+$table-background-color:  #d9ebdc;
+$code-background-color:   #d9ebdc;
 
-$global-font-color:             #00115e;  // deep blue ink
-$global-font-secondary-color:   #005435;  // green
+// Borders / separators
+$global-border-color: #007621;       // green
+$table-thead-color:   #d9ebdc;
 
-$global-link-color:             #00652b;  // green
-$global-link-hover-color:       #00115e;
-$header-hover-color:            #00652b;
-$single-link-color:             #00652b;
-$single-link-hover-color:       #00115e;
-$pagination-link-color:         #00652b;
-$pagination-link-hover-color:   #00115e;
-$blockquote-color:              #00334a;  // teal
-$code-color:                    #00652b;
+// Raised / interactive surfaces
+$search-background-color: #d9ebdc;
 
-// ---------- Dark ---------- //
-$global-background-color-dark:  #00115e;  // deep blue
-$header-background-color-dark:  #002254;
-$table-background-color-dark:   #002254;
-$code-background-color-dark:    #002254;
-$global-border-color-dark:      #00334a;
-$table-thead-color-dark:        #002254;
-$search-background-color-dark:  #002254;
+// Text
+$global-font-color:           #00115e;  // deep blue ink
+$global-font-secondary-color: #005435;  // green
 
-$global-font-color-dark:            #cdebd2;  // derived light green
-$global-font-secondary-color-dark:  #8fc79a;  // derived
-
-$global-link-color-dark:              #4ad46a;  // derived bright green
-$global-link-hover-color-dark:        #cdebd2;
-$header-hover-color-dark:             #4ad46a;
-$single-link-color-dark:              #4ad46a;
-$single-link-hover-color-dark:        #cdebd2;
-$pagination-link-color-dark:          #4ad46a;
-$pagination-link-hover-color-dark:    #cdebd2;
-$blockquote-color-dark:               #004440;  // teal-green
-$code-color-dark:                     #8fc79a;
+// Links / accents
+$global-link-color:              #00652b;  // green
+$global-link-hover-color:        #00115e;
+$header-hover-color:             #00652b;
+$single-link-color:              #00652b;
+$single-link-hover-color:        #00115e;
+$pagination-link-color:          #00652b;
+$pagination-link-hover-color:    #00115e;
+$blockquote-color:               #00334a;  // teal
+$code-color:                     #00652b;
