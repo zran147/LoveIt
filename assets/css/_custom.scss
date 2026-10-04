@@ -2,3 +2,41 @@
 // Custom style
 // 自定义样式
 // ==============================
+
+// Wrapper for the `image-row` shortcode: lays several `image` shortcodes
+// out horizontally. Height is driven by the `--img-row-height` CSS var set
+// by the shortcode; spacing by `--img-row-gap`.
+.img-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--img-row-gap, .75rem);
+  align-items: flex-start;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.img-row figure {
+  margin: 0;
+}
+
+// fit: keep each image's aspect ratio, scaled to the configured height,
+// never exceeding the container width.
+.img-row--fit figure img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: var(--img-row-height, auto);
+  object-fit: contain;
+}
+
+// equal: every image gets the same width, cropped to the configured height.
+.img-row--equal figure {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.img-row--equal figure img {
+  width: 100%;
+  height: var(--img-row-height, auto);
+  object-fit: cover;
+}

@@ -1,0 +1,30 @@
+{{- /* image-row: place several `image` shortcodes side by side in one row.
+       Usage:
+         {{< image-row height="320" >}}
+           {{< image src="a.png" caption="a" >}}
+           {{< image src="b.png" caption="b" >}}
+         {{< /image-row >}}
+       Params:
+         height [optional]  target row height, plain number => px ("320"), or any CSS length
+         mode   [optional]  "fit" (default, keep aspect ratio, capped by height)
+                            "equal" (equal-width columns, cropped to height)
+         gap    [optional]  space between images, default ".75rem"
+         class  [optional]  extra class on the wrapper
+   */ -}}
+{{- $height := .Get "height" | default "" -}}
+{{- $mode := .Get "mode" | default "fit" -}}
+{{- $gap := .Get "gap" | default ".75rem" -}}
+{{- $class := .Get "class" | default "" -}}
+
+{{- $h := "auto" -}}
+{{- with $height -}}
+    {{- $h = . -}}
+    {{- if not (findRE "[a-zA-Z%]" .) -}}
+        {{- $h = printf "%spx" . -}}
+    {{- end -}}
+{{- end -}}
+
+<div class="img-row img-row--{{ $mode }}{{ with $class }} {{ . }}{{ end }}"
+     style="--img-row-height: {{ $h }}; --img-row-gap: {{ $gap }};">
+    {{- .Inner -}}
+</div>
