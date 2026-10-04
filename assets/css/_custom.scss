@@ -88,3 +88,46 @@ $heading-mark-color-dark: null !default;
     color: $heading-mark-color-dark;
   }
 }
+
+// TOC line + glyph color in dark mode. Palettes may set $toc-border-color-dark.
+$toc-border-color-dark: null !default;
+@if $toc-border-color-dark != null {
+  [theme=dark] #toc-auto {
+    border-left-color: $toc-border-color-dark;
+  }
+  [theme=dark] .toc .toc-content ul a:first-child::before {
+    color: $toc-border-color-dark;
+  }
+  [theme=dark] #toc-auto .toc-content a.active::before {
+    color: $toc-border-color-dark;
+  }
+}
+
+// Active TOC entry text color in dark mode. Palettes may set $toc-active-color-dark.
+$toc-active-color-dark: null !default;
+@if $toc-active-color-dark != null {
+  [theme=dark] #toc-auto .toc-content a.active {
+    color: $toc-active-color-dark;
+  }
+}
+
+// Fixed button (back-to-top arrow). Palettes may set these.
+$fixed-button-color-dark: null !default;
+@if $fixed-button-color-dark != null {
+  [theme=dark] .fixed-button {
+    color: $fixed-button-color-dark;
+  }
+}
+$fixed-button-hover-color-dark: null !default;
+@if $fixed-button-hover-color-dark != null {
+  [theme=dark] .fixed-button:hover,
+  [theme=dark] .fixed-button:active {
+    color: $fixed-button-hover-color-dark;
+  }
+}
+$fixed-button-background-dark: null !default;
+@if $fixed-button-background-dark != null {
+  [theme=dark] .fixed-button {
+    background: $fixed-button-background-dark;
+  }
+}

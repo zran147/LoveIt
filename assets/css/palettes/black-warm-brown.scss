@@ -10,7 +10,7 @@
 $global-background-color-dark: #141414;
 $header-background-color-dark: #1f1f1f;
 $table-background-color-dark:  #171717;
-$code-background-color-dark:   #171717;
+$code-background-color-dark:   #2a2a2a;
 
 // Borders / separators
 $global-border-color-dark: #2d2011;
@@ -29,4 +29,16 @@ $global-font-secondary-color-dark: #61574d;
 $muted-font-weight-dark: 600;
 
 // Heading mark color (consumed by _custom.scss)
-$heading-mark-color-dark: #61574d;
+$heading-mark-color-dark: #392d1e;
+
+// TOC sidebar line color (consumed by _custom.scss)
+// Mid brown, between the palette's #2d2011 border and the #61574d muted text.
+$toc-border-color-dark: #392d1e;
+
+// Active TOC entry text color (consumed by _custom.scss)
+$toc-active-color-dark: #ffffff;
+
+// Fixed button (back-to-top arrow) color (consumed by _custom.scss)
+$fixed-button-color-dark: #cfcfd6;
+$fixed-button-hover-color-dark: #ffffff;
+$fixed-button-background-dark: #2e2e2e;
