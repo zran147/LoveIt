@@ -3,50 +3,51 @@
 // 覆盖变量
 // ==============================
 
-// Palette: #264653  #2a9d8f  #e9c46a  #f4a261  #e76f51  #ec8c74  #f0a390
-// Slate-teal + sand/orange/coral -> light AND dark.
-// Derived: light page #f7f0dc, dark panel #1d3944.
+// Palette: #00115e  #002254  #00334a  #004440  #005435  #00652b  #007621
+// Deep blue -> green ramp (all dark).
+// Dark uses the palette surfaces + derived light ink; light uses a derived near-white.
+// Derived: light #eef6ef / #d9ebdc; dark ink #cdebd2 / #8fc79a / #4ad46a.
 
 // ---------- Light ---------- //
-$global-background-color:       #f7f0dc;  // derived cream
-$header-background-color:       #e9c46a;  // sand
-$table-background-color:        #e9c46a;
-$code-background-color:         #e9c46a;
-$global-border-color:           #f4a261;  // light orange
-$table-thead-color:             #e9c46a;
-$search-background-color:       #e9c46a;
+$global-background-color:       #eef6ef;  // derived near-white
+$header-background-color:       #d9ebdc;  // derived
+$table-background-color:        #d9ebdc;
+$code-background-color:         #d9ebdc;
+$global-border-color:           #007621;  // green
+$table-thead-color:             #d9ebdc;
+$search-background-color:       #d9ebdc;
 
-$global-font-color:             #264653;  // slate-teal ink
-$global-font-secondary-color:   #2a9d8f;  // teal
+$global-font-color:             #00115e;  // deep blue ink
+$global-font-secondary-color:   #005435;  // green
 
-$global-link-color:             #e76f51;  // coral
-$global-link-hover-color:       #264653;
-$header-hover-color:            #e76f51;
-$single-link-color:             #e76f51;
-$single-link-hover-color:       #264653;
-$pagination-link-color:         #e76f51;
-$pagination-link-hover-color:   #264653;
-$blockquote-color:              #2a9d8f;  // teal
-$code-color:                    #e76f51;
+$global-link-color:             #00652b;  // green
+$global-link-hover-color:       #00115e;
+$header-hover-color:            #00652b;
+$single-link-color:             #00652b;
+$single-link-hover-color:       #00115e;
+$pagination-link-color:         #00652b;
+$pagination-link-hover-color:   #00115e;
+$blockquote-color:              #00334a;  // teal
+$code-color:                    #00652b;
 
 // ---------- Dark ---------- //
-$global-background-color-dark:  #264653;  // slate-teal
-$header-background-color-dark:  #1d3944;  // derived
-$table-background-color-dark:   #1d3944;
-$code-background-color-dark:    #1d3944;
-$global-border-color-dark:      #2a9d8f;  // teal
-$table-thead-color-dark:        #1d3944;
-$search-background-color-dark:  #1d3944;
+$global-background-color-dark:  #00115e;  // deep blue
+$header-background-color-dark:  #002254;
+$table-background-color-dark:   #002254;
+$code-background-color-dark:    #002254;
+$global-border-color-dark:      #00334a;
+$table-thead-color-dark:        #002254;
+$search-background-color-dark:  #002254;
 
-$global-font-color-dark:            #e9c46a;  // sand
-$global-font-secondary-color-dark:  #f4a261;  // light orange
+$global-font-color-dark:            #cdebd2;  // derived light green
+$global-font-secondary-color-dark:  #8fc79a;  // derived
 
-$global-link-color-dark:              #f0a390;  // peach
-$global-link-hover-color-dark:        #ec8c74;  // coral
-$header-hover-color-dark:             #f0a390;
-$single-link-color-dark:              #f0a390;
-$single-link-hover-color-dark:        #ec8c74;
-$pagination-link-color-dark:          #f0a390;
-$pagination-link-hover-color-dark:    #ec8c74;
-$blockquote-color-dark:               #e76f51;  // coral
-$code-color-dark:                     #f0a390;
+$global-link-color-dark:              #4ad46a;  // derived bright green
+$global-link-hover-color-dark:        #cdebd2;
+$header-hover-color-dark:             #4ad46a;
+$single-link-color-dark:              #4ad46a;
+$single-link-hover-color-dark:        #cdebd2;
+$pagination-link-color-dark:          #4ad46a;
+$pagination-link-hover-color-dark:    #cdebd2;
+$blockquote-color-dark:               #004440;  // teal-green
+$code-color-dark:                     #8fc79a;
