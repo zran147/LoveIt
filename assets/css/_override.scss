@@ -3,34 +3,34 @@
 // 覆盖变量
 // ==============================
 
-// Palette: #e63946  #f1faee  #a8dadc  #457b9d  #1d3557
-// Navy/blue + off-white + red accent -> dark theme.
-// Panel shade #24406b is derived from #1d3557.
+// Palette: #8ecae6  #219ebc  #023047  #ffb703  #fb8500
+// Ocean blue + sun accents -> dark theme.
+// Panel shade #0a3550 is derived from #023047.
 
 // Backgrounds
-$global-background-color-dark: #1d3557;   // page (navy)
-$header-background-color-dark: #24406b;   // derived lighter navy
-$table-background-color-dark:  #24406b;
-$code-background-color-dark:   #24406b;
+$global-background-color-dark: #023047;   // page (dark navy)
+$header-background-color-dark: #0a3550;   // derived
+$table-background-color-dark:  #0a3550;
+$code-background-color-dark:   #0a3550;
 
 // Borders / separators
-$global-border-color-dark: #457b9d;       // medium blue
-$table-thead-color-dark:   #24406b;
+$global-border-color-dark: #219ebc;       // cyan-blue
+$table-thead-color-dark:   #0a3550;
 
 // Raised / interactive surfaces
-$search-background-color-dark: #24406b;
+$search-background-color-dark: #0a3550;
 
 // Text
-$global-font-color-dark:           #f1faee;  // off-white
-$global-font-secondary-color-dark: #a8dadc;  // pale blue
+$global-font-color-dark:           #8ecae6;  // sky blue
+$global-font-secondary-color-dark: #219ebc;  // cyan-blue
 
 // Links / accents
-$global-link-color-dark:              #a8dadc;  // pale blue
-$global-link-hover-color-dark:        #e63946;  // red
-$header-hover-color-dark:             #f1faee;
-$single-link-color-dark:              #a8dadc;
-$single-link-hover-color-dark:        #e63946;
-$pagination-link-color-dark:          #a8dadc;
-$pagination-link-hover-color-dark:    #f1faee;
-$blockquote-color-dark:               #e63946;  // red
-$code-color-dark:                     #a8dadc;
+$global-link-color-dark:              #219ebc;
+$global-link-hover-color-dark:        #ffb703;  // gold
+$header-hover-color-dark:             #ffb703;
+$single-link-color-dark:              #219ebc;
+$single-link-hover-color-dark:        #ffb703;
+$pagination-link-color-dark:          #219ebc;
+$pagination-link-hover-color-dark:    #ffb703;
+$blockquote-color-dark:               #fb8500;  // orange
+$code-color-dark:                     #ffb703;
