@@ -4,7 +4,7 @@
 // ==============================
 
 // Light palette: #f1e1c2 #f3dbbb #f5d5b4 #f7cfad #f8c8a6 #fac29f #fcbc98 (beige)
-// Dark  palette: #ff0000 #d50000 #aa0000 #800000 #550000 #2b0000 #000000 (red -> black)
+// Dark  palette: #243748 #2b4157 #314b65 #385674 #3e6082 #456a91 #4b749f (slate blue)
 
 // ---------- Light ---------- //
 $global-background-color: #f1e1c2;
@@ -29,23 +29,23 @@ $blockquote-color:               #fac29f;
 $code-color:                     #9c5212;
 
 // ---------- Dark ---------- //
-$global-background-color-dark: #000000;  // black
-$header-background-color-dark: #2b0000;
-$table-background-color-dark:  #550000;
-$code-background-color-dark:   #2b0000;
-$search-background-color-dark: #800000;
-$global-border-color-dark:     #aa0000;
-$table-thead-color-dark:       #550000;
+$global-background-color-dark: #243748;  // darkest slate
+$header-background-color-dark: #2b4157;
+$table-background-color-dark:  #314b65;
+$code-background-color-dark:   #2b4157;
+$search-background-color-dark: #385674;
+$global-border-color-dark:     #3e6082;
+$table-thead-color-dark:       #456a91;
 
-$global-font-color-dark:           #f5e6e6;  // derived near-white pink
-$global-font-secondary-color-dark: #c98a8a;  // derived muted
+$global-font-color-dark:           #e6edf4;  // derived near-white
+$global-font-secondary-color-dark: #9db0c4;  // derived muted
 
-$global-link-color-dark:              #ff0000;  // pure red
-$global-link-hover-color-dark:        #f5e6e6;
-$header-hover-color-dark:             #ff0000;
-$single-link-color-dark:              #ff0000;
-$single-link-hover-color-dark:        #f5e6e6;
-$pagination-link-color-dark:          #ff0000;
-$pagination-link-hover-color-dark:    #f5e6e6;
-$blockquote-color-dark:               #d50000;  // red
-$code-color-dark:                     #ff0000;
+$global-link-color-dark:              #7fa8cf;  // derived light blue
+$global-link-hover-color-dark:        #e6edf4;
+$header-hover-color-dark:             #7fa8cf;
+$single-link-color-dark:              #7fa8cf;
+$single-link-hover-color-dark:        #e6edf4;
+$pagination-link-color-dark:          #7fa8cf;
+$pagination-link-hover-color-dark:    #e6edf4;
+$blockquote-color-dark:               #4b749f;  // brightest slate
+$code-color-dark:                     #7fa8cf;
