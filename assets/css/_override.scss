@@ -2,3 +2,22 @@
 // Override Variables
 // 覆盖变量
 // ==============================
+
+// Palette: #000000  #171717  #2d2011  #403427  #51463b  #61574d
+// Black -> warm brown ramp, darkest (page) -> lightest (muted text).
+
+// Backgrounds
+$global-background-color-dark: #000000;
+$header-background-color-dark: #171717;
+$table-background-color-dark:  #171717;
+$code-background-color-dark:   #171717;
+
+// Borders / separators
+$global-border-color-dark: #2d2011;
+$table-thead-color-dark:   #403427;
+
+// Raised / interactive surfaces
+$search-background-color-dark: #51463b;
+
+// Muted text
+$global-font-secondary-color-dark: #61574d;
