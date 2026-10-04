@@ -4,7 +4,7 @@
 // ==============================
 
 // Light palette: #f1e1c2 #f3dbbb #f5d5b4 #f7cfad #f8c8a6 #fac29f #fcbc98 (beige)
-// Dark  palette: #08203e #152f4c #223f5a #2f4e69 #3b5d77 #486d85 #557c93 (navy -> steel)
+// Dark  palette: #000328 #000e39 #00194a #00245b #002f6c #003a7d #00458e (deep navy)
 
 // ---------- Light ---------- //
 $global-background-color: #f1e1c2;
@@ -29,23 +29,23 @@ $blockquote-color:               #fac29f;
 $code-color:                     #9c5212;
 
 // ---------- Dark ---------- //
-$global-background-color-dark: #08203e;  // darkest navy
-$header-background-color-dark: #152f4c;
-$table-background-color-dark:  #223f5a;
-$code-background-color-dark:   #152f4c;
-$search-background-color-dark: #2f4e69;
-$global-border-color-dark:     #3b5d77;
-$table-thead-color-dark:       #486d85;
+$global-background-color-dark: #000328;  // deepest navy
+$header-background-color-dark: #000e39;
+$table-background-color-dark:  #00194a;
+$code-background-color-dark:   #000e39;
+$search-background-color-dark: #00245b;
+$global-border-color-dark:     #002f6c;
+$table-thead-color-dark:       #003a7d;
 
-$global-font-color-dark:           #dce6f0;  // derived near-white blue
-$global-font-secondary-color-dark: #8fa6ba;  // derived muted
+$global-font-color-dark:           #d8e4f2;  // derived near-white blue
+$global-font-secondary-color-dark: #8fa6c0;  // derived muted
 
-$global-link-color-dark:              #7fb0d6;  // derived light blue
-$global-link-hover-color-dark:        #dce6f0;
-$header-hover-color-dark:             #7fb0d6;
-$single-link-color-dark:              #7fb0d6;
-$single-link-hover-color-dark:        #dce6f0;
-$pagination-link-color-dark:          #7fb0d6;
-$pagination-link-hover-color-dark:    #dce6f0;
-$blockquote-color-dark:               #557c93;  // steel
-$code-color-dark:                     #7fb0d6;
+$global-link-color-dark:              #5b8fd6;  // derived light blue
+$global-link-hover-color-dark:        #d8e4f2;
+$header-hover-color-dark:             #5b8fd6;
+$single-link-color-dark:              #5b8fd6;
+$single-link-hover-color-dark:        #d8e4f2;
+$pagination-link-color-dark:          #5b8fd6;
+$pagination-link-hover-color-dark:    #d8e4f2;
+$blockquote-color-dark:               #00458e;  // brightest navy
+$code-color-dark:                     #5b8fd6;
