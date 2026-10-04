@@ -9,7 +9,7 @@
 .img-row {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--img-row-gap, .75rem);
+  gap: var(--img-row-gap, 4rem);
   align-items: flex-start;
   justify-content: center;
   margin: 1rem 0;
