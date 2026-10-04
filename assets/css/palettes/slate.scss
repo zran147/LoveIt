@@ -1,0 +1,28 @@
+// ==============================
+// Override Variables
+// 覆盖变量
+// ==============================
+
+// Palette: #243748 #2b4157 #314b65 #385674 #3e6082 #456a91 #4b749f (slate blue) -- DARK ONLY
+
+// ---------- Dark ---------- //
+$global-background-color-dark: #243748;  // darkest slate
+$header-background-color-dark: #2b4157;
+$table-background-color-dark:  #314b65;
+$code-background-color-dark:   #2b4157;
+$search-background-color-dark: #385674;
+$global-border-color-dark:     #3e6082;
+$table-thead-color-dark:       #456a91;
+
+$global-font-color-dark:           #e6edf4;  // derived near-white
+$global-font-secondary-color-dark: #9db0c4;  // derived muted
+
+$global-link-color-dark:              #7fa8cf;  // derived light blue
+$global-link-hover-color-dark:        #e6edf4;
+$header-hover-color-dark:             #7fa8cf;
+$single-link-color-dark:              #7fa8cf;
+$single-link-hover-color-dark:        #e6edf4;
+$pagination-link-color-dark:          #7fa8cf;
+$pagination-link-hover-color-dark:    #e6edf4;
+$blockquote-color-dark:               #4b749f;  // brightest slate
+$code-color-dark:                     #7fa8cf;

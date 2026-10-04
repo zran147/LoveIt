@@ -1,0 +1,21 @@
+# Color palettes shown in the header palette switcher (desktop + mobile).
+# Each name must match themes/LoveIt/assets/css/palettes/<name>.scss
+# The initial palette is set by `palette` under [params] in hugo.toml.
+# A palette may define light, dark, or both; the light/dark switch is disabled
+# automatically for single-mode palettes.
+- teal-peach
+- sage-cream
+- ocean-blue
+- navy-orange
+- navy-gold
+- navy-blue
+- slate-coral
+- bluegray-red
+- blue-green-light
+- gold-navy
+- black-warm-brown
+- warm-black
+- slate
+- red-black
+- deep-navy
+- navy-steel

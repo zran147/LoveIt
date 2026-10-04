@@ -1,0 +1,36 @@
+// ==============================
+// Override Variables
+// 覆盖变量
+// ==============================
+
+// Palette: #588b8b  #ffffff  #ffd5c2  #f28f3b  #c8553d
+// Muted teal / white / peach / orange -> light theme.
+// Derived: light surface #f7f2ef + ink #333333 / #6f6f6f.
+
+// Backgrounds
+$global-background-color: #ffffff;   // white
+$header-background-color: #f7f2ef;   // derived
+$table-background-color:  #f7f2ef;
+$code-background-color:   #f7f2ef;
+
+// Borders / separators
+$global-border-color: #ffd5c2;       // peach
+$table-thead-color:   #f7f2ef;
+
+// Raised / interactive surfaces
+$search-background-color: #f7f2ef;
+
+// Text
+$global-font-color:           #333333;  // derived ink
+$global-font-secondary-color: #6f6f6f;  // derived muted
+
+// Links / accents
+$global-link-color:              #c8553d;  // burnt orange
+$global-link-hover-color:        #588b8b;  // teal
+$header-hover-color:             #c8553d;
+$single-link-color:              #c8553d;
+$single-link-hover-color:        #588b8b;
+$pagination-link-color:          #c8553d;
+$pagination-link-hover-color:    #588b8b;
+$blockquote-color:               #f28f3b;  // orange
+$code-color:                     #c8553d;

@@ -29,11 +29,9 @@
     <link rel="feed" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ $.Site.Title }}">
 {{- end -}}
 
-{{- /* style.min.css */ -}}
-{{- $options := dict "Source" "css/style.scss" "Fingerprint" $fingerprint -}}
-{{- $toCSS := dict "targetPath" "css/style.min.css" "outputStyle" "compressed" "enableSourceMap" true -}}
-{{- $options = dict "Context" . "ToCSS" $toCSS | merge $options -}}
-{{- partial "plugin/style.html" $options -}}
+{{- /* style.min.css (runtime palette switcher) */ -}}
+{{- $palettes := partial "function/palettes.html" . -}}
+<link id="palette-style" rel="stylesheet" href="{{ (index $palettes.items $palettes.default).url }}">
 
 {{- /* Font Awesome */ -}}
 {{- $source := $cdn.fontawesomeFreeCSS | default "lib/fontawesome-free/css/all.min.css" -}}

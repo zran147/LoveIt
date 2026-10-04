@@ -213,6 +213,10 @@
     {{- dict "Content" $content "Path" (printf "%v.scss" $path) "ToCSS" $options | dict "Scratch" $.Scratch "Data" | partial "scratch/style.html" -}}
 {{- end -}}
 
+{{- /* Palette switcher config */ -}}
+{{- $palettes := partial "function/palettes.html" . -}}
+{{- $config = dict "items" $palettes.items "default" $palettes.default | dict "palette" | merge $config -}}
+
 {{- /* Config script */ -}}
 {{- $config | jsonify | printf "window.config=%s;" | dict "Content" | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 

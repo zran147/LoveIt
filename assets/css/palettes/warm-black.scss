@@ -1,0 +1,23 @@
+// ==============================
+// Override Variables
+// 覆盖变量
+// ==============================
+
+// Palette: #1a1919  #252323  #2d2011  #403427  #61574d
+// Warm near-black -> warm brown ramp, darkest (page) -> lightest (muted text).
+
+// Backgrounds
+$global-background-color-dark: #1a1919;
+$header-background-color-dark: #252323;
+$table-background-color-dark:  #252323;
+$code-background-color-dark:   #252323;
+
+// Borders / separators
+$global-border-color-dark: #2d2011;
+$table-thead-color-dark:   #2d2011;
+
+// Raised / interactive surfaces
+$search-background-color-dark: #403427;
+
+// Muted text
+$global-font-secondary-color-dark: #61574d;

@@ -3,49 +3,6 @@
 // 覆盖变量
 // ==============================
 
-// Light palette: #f1e1c2 #f3dbbb #f5d5b4 #f7cfad #f8c8a6 #fac29f #fcbc98 (beige)
-// Dark  palette: #243748 #2b4157 #314b65 #385674 #3e6082 #456a91 #4b749f (slate blue)
-
-// ---------- Light ---------- //
-$global-background-color: #f1e1c2;
-$header-background-color: #f3dbbb;
-$table-background-color:  #f5d5b4;
-$code-background-color:   #f7cfad;
-$search-background-color: #f8c8a6;
-$global-border-color:     #fcbc98;
-$table-thead-color:       #f3dbbb;
-
-$global-font-color:           #4a3620;  // derived ink
-$global-font-secondary-color: #8a7355;  // derived
-
-$global-link-color:              #9c5212;  // derived
-$global-link-hover-color:        #4a3620;
-$header-hover-color:             #9c5212;
-$single-link-color:              #9c5212;
-$single-link-hover-color:        #4a3620;
-$pagination-link-color:          #9c5212;
-$pagination-link-hover-color:    #4a3620;
-$blockquote-color:               #fac29f;
-$code-color:                     #9c5212;
-
-// ---------- Dark ---------- //
-$global-background-color-dark: #243748;  // darkest slate
-$header-background-color-dark: #2b4157;
-$table-background-color-dark:  #314b65;
-$code-background-color-dark:   #2b4157;
-$search-background-color-dark: #385674;
-$global-border-color-dark:     #3e6082;
-$table-thead-color-dark:       #456a91;
-
-$global-font-color-dark:           #e6edf4;  // derived near-white
-$global-font-secondary-color-dark: #9db0c4;  // derived muted
-
-$global-link-color-dark:              #7fa8cf;  // derived light blue
-$global-link-hover-color-dark:        #e6edf4;
-$header-hover-color-dark:             #7fa8cf;
-$single-link-color-dark:              #7fa8cf;
-$single-link-hover-color-dark:        #e6edf4;
-$pagination-link-color-dark:          #7fa8cf;
-$pagination-link-hover-color-dark:    #e6edf4;
-$blockquote-color-dark:               #4b749f;  // brightest slate
-$code-color-dark:                     #7fa8cf;
+// Palette selection moved to `assets/css/palettes/<name>.scss`.
+// Choose one with the `palette` param in hugo.toml (see head/link.html).
+// This file is intentionally left for any global overrides.

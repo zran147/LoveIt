@@ -1,0 +1,23 @@
+{{- /* Compile every palette stylesheet and return their URLs + supported modes.
+       Returns: dict
+         "default" (name)
+         "list"    (slice of names)
+         "items"   (name -> dict "url" "light" (bool) "dark" (bool)) */ -}}
+{{- $list := site.Data.palettes | default (slice) -}}
+{{- $default := site.Params.palette | default (index $list 0) -}}
+{{- $items := dict -}}
+{{- range $name := $list -}}
+    {{- $content := "" -}}
+    {{- with resources.Get (printf "css/palettes/%s.scss" $name) -}}
+        {{- $content = .Content -}}
+    {{- end -}}
+    {{- $all := findRE `(?m)^\s*\$[a-zA-Z0-9-]+\s*:` $content -}}
+    {{- $dark := findRE `(?m)^\s*\$[a-zA-Z0-9-]+-dark\s*:` $content -}}
+    {{- $hasDark := gt (len $dark) 0 -}}
+    {{- $hasLight := gt (len $all) (len $dark) -}}
+    {{- $scss := printf "@import \"palettes/%s\";\n@import \"style\";" $name -}}
+    {{- $opts := dict "targetPath" (printf "css/palette/%s.min.css" $name) "outputStyle" "compressed" -}}
+    {{- $css := resources.FromString (printf "css/palette-%s.scss" $name) $scss | toCSS $opts -}}
+    {{- $items = dict $name (dict "url" $css.RelPermalink "light" $hasLight "dark" $hasDark) | merge $items -}}
+{{- end -}}
+{{- return (dict "items" $items "default" $default "list" $list) -}}

@@ -1,0 +1,52 @@
+// ==============================
+// Override Variables
+// 覆盖变量
+// ==============================
+
+// Palette: #495867  #577399  #bdd5ea  #f7f7ff  #fe5f55
+// Slate blue / blue / pale blue / near-white / coral -> light AND dark.
+// Derived: light panel #ffffff + link #d94138; dark panel #556676.
+
+// ---------- Light ---------- //
+$global-background-color:       #f7f7ff;  // near-white
+$header-background-color:       #ffffff;  // derived
+$table-background-color:        #ffffff;
+$code-background-color:         #ffffff;
+$global-border-color:           #bdd5ea;  // pale blue
+$table-thead-color:             #f7f7ff;
+$search-background-color:       #ffffff;
+
+$global-font-color:             #495867;  // slate ink
+$global-font-secondary-color:   #577399;  // medium blue
+
+$global-link-color:             #d94138;  // derived darker coral
+$global-link-hover-color:       #577399;
+$header-hover-color:            #d94138;
+$single-link-color:             #d94138;
+$single-link-hover-color:       #577399;
+$pagination-link-color:         #d94138;
+$pagination-link-hover-color:   #577399;
+$blockquote-color:              #fe5f55;  // coral
+$code-color:                    #d94138;
+
+// ---------- Dark ---------- //
+$global-background-color-dark:  #495867;  // slate
+$header-background-color-dark:  #556676;  // derived
+$table-background-color-dark:   #556676;
+$code-background-color-dark:    #556676;
+$global-border-color-dark:      #577399;  // medium blue
+$table-thead-color-dark:        #556676;
+$search-background-color-dark:  #556676;
+
+$global-font-color-dark:            #f7f7ff;  // near-white
+$global-font-secondary-color-dark:  #bdd5ea;  // pale blue
+
+$global-link-color-dark:              #bdd5ea;  // pale blue
+$global-link-hover-color-dark:        #fe5f55;  // coral
+$header-hover-color-dark:             #fe5f55;
+$single-link-color-dark:              #bdd5ea;
+$single-link-hover-color-dark:        #fe5f55;
+$pagination-link-color-dark:          #bdd5ea;
+$pagination-link-hover-color-dark:    #fe5f55;
+$blockquote-color-dark:               #fe5f55;  // coral
+$code-color-dark:                     #bdd5ea;

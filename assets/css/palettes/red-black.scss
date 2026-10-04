@@ -1,0 +1,28 @@
+// ==============================
+// Override Variables
+// 覆盖变量
+// ==============================
+
+// Palette: #ff0000 #d50000 #aa0000 #800000 #550000 #2b0000 #000000 (red -> black) -- DARK ONLY
+
+// ---------- Dark ---------- //
+$global-background-color-dark: #000000;  // black
+$header-background-color-dark: #2b0000;
+$table-background-color-dark:  #550000;
+$code-background-color-dark:   #2b0000;
+$search-background-color-dark: #800000;
+$global-border-color-dark:     #aa0000;
+$table-thead-color-dark:       #550000;
+
+$global-font-color-dark:           #f5e6e6;  // derived near-white pink
+$global-font-secondary-color-dark: #c98a8a;  // derived muted
+
+$global-link-color-dark:              #ff0000;  // pure red
+$global-link-hover-color-dark:        #f5e6e6;
+$header-hover-color-dark:             #ff0000;
+$single-link-color-dark:              #ff0000;
+$single-link-hover-color-dark:        #f5e6e6;
+$pagination-link-color-dark:          #ff0000;
+$pagination-link-hover-color-dark:    #f5e6e6;
+$blockquote-color-dark:               #d50000;  // red
+$code-color-dark:                     #ff0000;

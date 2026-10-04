@@ -103,6 +103,63 @@ class Theme {
         });
     }
 
+    initPalette() {
+        const paletteConfig = this.config.palette;
+        if (!paletteConfig || !paletteConfig.items) return;
+
+        const items = paletteConfig.items;
+        const stored = window.localStorage?.getItem('palette');
+        const name = (stored && items[stored]) ? stored : paletteConfig.default;
+        const item = items[name];
+        const $link = document.getElementById('palette-style');
+        if ($link && item && item.url) {
+            $link.setAttribute('href', item.url);
+        }
+
+        Util.forEach(document.getElementsByClassName('palette-select'), $select => {
+            $select.value = name;
+            $select.addEventListener('change', () => this.selectPalette($select.value), false);
+        });
+
+        this.applyPaletteModes(item);
+    }
+
+    selectPalette(name) {
+        const items = (this.config.palette || {}).items;
+        if (!items || !items[name]) return;
+        const item = items[name];
+        const $link = document.getElementById('palette-style');
+        if ($link && item.url) {
+            $link.setAttribute('href', item.url);
+        }
+        window.localStorage?.setItem('palette', name);
+        this.applyPaletteModes(item);
+    }
+
+    applyPaletteModes(item) {
+        if (!item) return;
+        const modes = [];
+        if (item.light) modes.push('light');
+        if (item.dark) modes.push('dark');
+        const forced = modes.length === 1 ? modes[0] : null;
+
+        Util.forEach(document.getElementsByClassName('theme-switch'), $switch => {
+            $switch.classList.toggle('disabled', !!forced);
+        });
+
+        if (forced) {
+            this.isDark = forced === 'dark';
+            document.body.setAttribute('theme', forced);
+            document.body.setAttribute('cfg-theme', forced);
+        } else {
+            const stored = window.localStorage?.getItem('theme') || 'auto';
+            this.isDark = stored === 'dark' || (stored === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.body.setAttribute('theme', this.isDark ? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', stored);
+        }
+        for (let event of this.switchThemeEventSet) event();
+    }
+
     initSearch() {
         const searchConfig = this.config.search;
         const isMobile = Util.isMobile();
@@ -845,6 +902,7 @@ class Theme {
             this.initTwemoji();
             this.initMenuMobile();
             this.initSwitchTheme();
+            this.initPalette();
             this.initSearch();
             this.initDetails();
             this.initLightGallery();

@@ -1,0 +1,53 @@
+// ==============================
+// Override Variables
+// 覆盖变量
+// ==============================
+
+// Palette: #ffd373  #fd8021  #e05400  #0073cc  #003488  #001d59  #001524
+// Gold / orange / blues / near-black navy -> light AND dark.
+// Light: cool pale-blue page with navy ink and orange accents.
+// Derived: light page #eaf2fb + panel #dbe9f8.
+
+// ---------- Light ---------- //
+$global-background-color:       #eaf2fb;  // derived pale blue
+$header-background-color:       #dbe9f8;  // derived
+$table-background-color:        #dbe9f8;
+$code-background-color:         #dbe9f8;
+$global-border-color:           #0073cc;  // medium blue
+$table-thead-color:             #dbe9f8;
+$search-background-color:       #dbe9f8;
+
+$global-font-color:             #001524;  // near-black navy ink
+$global-font-secondary-color:   #003488;  // dark blue
+
+$global-link-color:             #0073cc;  // medium blue
+$global-link-hover-color:       #e05400;  // dark orange
+$header-hover-color:            #e05400;
+$single-link-color:             #0073cc;
+$single-link-hover-color:       #e05400;
+$pagination-link-color:         #0073cc;
+$pagination-link-hover-color:   #e05400;
+$blockquote-color:              #fd8021;  // orange
+$code-color:                    #e05400;
+
+// ---------- Dark ---------- //
+$global-background-color-dark:  #001524;  // near-black navy
+$header-background-color-dark:  #001d59;  // dark navy
+$table-background-color-dark:   #001d59;
+$code-background-color-dark:    #001d59;
+$global-border-color-dark:      #003488;  // dark blue
+$table-thead-color-dark:        #001d59;
+$search-background-color-dark:  #001d59;
+
+$global-font-color-dark:            #ffd373;  // gold
+$global-font-secondary-color-dark:  #0073cc;  // medium blue
+
+$global-link-color-dark:              #fd8021;  // orange
+$global-link-hover-color-dark:        #ffd373;  // gold
+$header-hover-color-dark:             #fd8021;
+$single-link-color-dark:              #fd8021;
+$single-link-hover-color-dark:        #ffd373;
+$pagination-link-color-dark:          #fd8021;
+$pagination-link-hover-color-dark:    #ffd373;
+$blockquote-color-dark:               #e05400;  // dark orange
+$code-color-dark:                     #ffd373;

@@ -40,3 +40,51 @@
   height: var(--img-row-height, auto);
   object-fit: cover;
 }
+
+// Palette switcher: invisible select layered over the header icon
+// (mirrors LoveIt's .language-select).
+.palette-select {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// Disabled light/dark switch when the active palette only supports one mode.
+.theme-switch.disabled {
+  opacity: .3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+// Muted-text weight in dark mode. Palettes may set $muted-font-weight-dark;
+// otherwise it stays at the normal weight.
+$muted-font-weight-dark: 400 !default;
+[theme=dark] {
+  .post-meta,
+  .post-info-line,
+  #toc-auto,
+  .breadcrumb,
+  .terms-tags,
+  .search-footer {
+    font-weight: $muted-font-weight-dark;
+  }
+}
+
+// Heading mark color in dark mode. Palettes may set $heading-mark-color-dark.
+$heading-mark-color-dark: null !default;
+@if $heading-mark-color-dark != null {
+  [theme=dark] .single .content > h2 > .header-mark::before,
+  [theme=dark] .single .content > h3 > .header-mark::before,
+  [theme=dark] .single .content > h4 > .header-mark::before,
+  [theme=dark] .single .content > h5 > .header-mark::before,
+  [theme=dark] .single .content > h6 > .header-mark::before {
+    color: $heading-mark-color-dark;
+  }
+}
