@@ -1,12 +1,14 @@
 {{- /* lazysizes and lightgallery */ -}}
 {{- $src := .Src -}}
-{{- $width := .Width -}}
-{{- $height := .Height -}}
+{{- $userW := .Width -}}
+{{- $userH := .Height -}}
+{{- $natW := 0 -}}
+{{- $natH := 0 -}}
 {{- with dict "Path" $src "Resources" .Resources | partial "function/resource.html" -}}
     {{- $src = .RelPermalink -}}
     {{ if not (eq .MediaType.SubType "svg") }}
-        {{- $width = $width | default .Width -}}
-        {{- $height = $height | default .Height -}}
+        {{- $natW = .Width -}}
+        {{- $natH = .Height -}}
     {{ end }}
 {{- end -}}
 
@@ -22,6 +24,27 @@
 
 {{- $alt := .Alt | default $src -}}
 {{- $loading := resources.Get "svg/loading.svg" | minify -}}
+
+{{- /* Inline style with (a) the natural dimensions as CSS vars — used by the
+       `image-row` shortcode — and (b) an explicit size requested through the
+       `image` shortcode's `width` / `height` params. A `height` is converted to
+       the equivalent width so the aspect ratio is preserved and the column
+       width still caps it (no distortion, no overflow). */ -}}
+{{- $style := "" -}}
+{{- with $natW }}{{ $style = printf "--iw: %vpx" . }}{{ end -}}
+{{- with $natH }}{{ $style = printf "%s; --ih: %vpx" $style . }}{{ end -}}
+{{- if $userW -}}
+    {{- with ($userW | replaceRE "[^0-9]" "") -}}
+        {{- $style = printf "%s; width: %vpx; height: auto" $style (int .) -}}
+    {{- end -}}
+{{- else if $userH -}}
+    {{- $h := $userH | replaceRE "[^0-9]" "" | int -}}
+    {{- if and (gt $h 0) (gt $natH 0) -}}
+        {{- $style = printf "%s; width: %dpx; height: auto" $style (int (div (mul $h $natW) $natH)) -}}
+    {{- else if gt $h 0 -}}
+        {{- $style = printf "%s; height: %dpx; width: auto" $style $h -}}
+    {{- end -}}
+{{- end -}}
 {{- if .Linked -}}
     <a class="lightgallery" href="{{ $large | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small | safeURL }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
         <img
@@ -31,8 +54,8 @@
             data-srcset="{{ $small | safeURL }}, {{ $src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
             data-sizes="auto"
             alt="{{ $alt }}"
-            {{- with $width }} width="{{ . }}"{{ end }}
-            {{- with $height }} height="{{ . }}"{{ end }} />
+            {{- with $natW }} width="{{ . }}"{{ end }}
+            {{- with $natH }} height="{{ . }}"{{ end }}{{ with $style }} style="{{ . | safeCSS }}"{{ end }} />
     </a>
 {{- else -}}
     <img
@@ -43,6 +66,6 @@
         data-sizes="auto"
         alt="{{ $alt }}"
         title="{{ .Title | default $alt }}"
-        {{- with $width }} width="{{ . }}"{{ end }}
-        {{- with $height }} height="{{ . }}"{{ end }} />
+        {{- with $natW }} width="{{ . }}"{{ end }}
+        {{- with $natH }} height="{{ . }}"{{ end }}{{ with $style }} style="{{ . | safeCSS }}"{{ end }} />
 {{- end -}}

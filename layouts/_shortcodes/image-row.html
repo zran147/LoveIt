@@ -5,8 +5,11 @@
            {{< image src="b.png" caption="b" >}}
          {{< /image-row >}}
        Params:
-         height [optional]  target row height in px, as a plain number (e.g. 320)
-         mode   [optional]  "fit" (default, keep aspect ratio, capped by height)
+         height [optional]  target height in px for the tallest image (e.g. 320).
+                            All images are scaled by the same factor so the
+                            tallest one is exactly this tall; aspect ratios are
+                            preserved.
+         mode   [optional]  "fit" (default, scale to `height` as described above)
                             "equal" (equal-width columns, cropped to height)
          gap    [optional]  space between images, default "4rem"
          class  [optional]  extra class on the wrapper
@@ -16,12 +19,26 @@
 {{- $gap := .Get "gap" | default "4rem" -}}
 {{- $class := .Get "class" | default "" -}}
 
-{{- $h := "auto" -}}
+{{- $h := "none" -}}
+{{- $scale := 1.0 -}}
 {{- if gt $height 0 -}}
     {{- $h = printf "%dpx" $height -}}
+    {{- /* collect each image's natural height (emitted as `--ih` by the img
+           partial) and derive a common scale so the tallest == $height */ -}}
+    {{- $heights := slice -}}
+    {{- range findRE `--ih:\s*[0-9]+px` .Inner -}}
+        {{- $heights = $heights | append (replaceRE `[^0-9]` "" . | int) -}}
+    {{- end -}}
+    {{- $max := 0 -}}
+    {{- range $heights -}}
+        {{- if gt . $max -}}{{- $max = . -}}{{- end -}}
+    {{- end -}}
+    {{- if gt $max 0 -}}
+        {{- $scale = div (float $height) (float $max) -}}
+    {{- end -}}
 {{- end -}}
 
 <div class="img-row img-row--{{ $mode }}{{ with $class }} {{ . }}{{ end }}"
-     style="--img-row-height: {{ $h }}; --img-row-gap: {{ $gap }};">
+     style="--img-row-height: {{ $h }}; --img-row-gap: {{ $gap }}; --img-row-scale: {{ $scale }};">
     {{- .Inner -}}
 </div>

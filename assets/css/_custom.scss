@@ -20,14 +20,18 @@
   margin: 0;
 }
 
-// fit: keep each image's aspect ratio, scaled to the configured height,
-// never exceeding the container width.
+// fit: every image is scaled by a common factor so the tallest image is
+// exactly `--img-row-height` tall; all aspect ratios are preserved. Images
+// wrap to the next line (instead of shrinking) when the row is too wide.
+.img-row--fit figure {
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+
 .img-row--fit figure img {
-  width: auto;
+  width: calc(var(--img-row-scale, 1) * var(--iw, auto));
   height: auto;
   max-width: 100%;
-  max-height: var(--img-row-height, auto);
-  object-fit: contain;
 }
 
 // equal: every image gets the same width, cropped to the configured height.
