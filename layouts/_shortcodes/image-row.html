@@ -13,6 +13,10 @@
                             "equal" (equal-width columns, cropped to height)
          gap    [optional]  space between images, default "4rem"
          class  [optional]  extra class on the wrapper
+
+       Alignment: if the row height is taller than half the viewport the images
+       are top-aligned, otherwise they are middle-aligned (pure CSS, per-row
+       media query, reacts to resizing).
    */ -}}
 {{- $height := .Get "height" | default 0 | int -}}
 {{- $mode := .Get "mode" | default "fit" -}}
@@ -21,24 +25,45 @@
 
 {{- $h := "none" -}}
 {{- $scale := 1.0 -}}
+{{- /* collect each image's natural height (emitted as `--ih` by the img
+       partial) and derive a common scale so the tallest == $height */ -}}
+{{- $heights := slice -}}
+{{- range findRE `--ih:\s*[0-9]+px` .Inner -}}
+    {{- $heights = $heights | append (replaceRE `[^0-9]` "" . | int) -}}
+{{- end -}}
+{{- $maxH := 0 -}}
+{{- range $heights -}}
+    {{- if gt . $maxH -}}{{- $maxH = . -}}{{- end -}}
+{{- end -}}
 {{- if gt $height 0 -}}
     {{- $h = printf "%dpx" $height -}}
-    {{- /* collect each image's natural height (emitted as `--ih` by the img
-           partial) and derive a common scale so the tallest == $height */ -}}
-    {{- $heights := slice -}}
-    {{- range findRE `--ih:\s*[0-9]+px` .Inner -}}
-        {{- $heights = $heights | append (replaceRE `[^0-9]` "" . | int) -}}
-    {{- end -}}
-    {{- $max := 0 -}}
-    {{- range $heights -}}
-        {{- if gt . $max -}}{{- $max = . -}}{{- end -}}
-    {{- end -}}
-    {{- if gt $max 0 -}}
-        {{- $scale = div (float $height) (float $max) -}}
+    {{- if gt $maxH 0 -}}
+        {{- $scale = div (float $height) (float $maxH) -}}
     {{- end -}}
 {{- end -}}
 
-<div class="img-row img-row--{{ $mode }}{{ with $class }} {{ . }}{{ end }}"
+{{- /* Height the row will take up: the requested `height`, or the tallest
+       rendered image height (`--rh`, i.e. taking any per-image width/height
+       params into account) when no `height` is given. If that is taller than
+       half the viewport the row is top-aligned, otherwise the images are
+       middle-aligned. Done with a per-row media query (no JS, reacts to resize). */ -}}
+{{- $rowH := $height -}}
+{{- if le $rowH 0 -}}
+    {{- $rhs := slice -}}
+    {{- range findRE `--rh:\s*[0-9]+px` .Inner -}}
+        {{- $rhs = $rhs | append (replaceRE `[^0-9]` "" . | int) -}}
+    {{- end -}}
+    {{- range $rhs -}}
+        {{- if gt . $rowH -}}{{- $rowH = . -}}{{- end -}}
+    {{- end -}}
+    {{- if le $rowH 0 -}}{{- $rowH = $maxH -}}{{- end -}}
+{{- end -}}
+{{- $id := printf "img-row-%d" .Ordinal -}}
+
+<div id="{{ $id }}" class="img-row img-row--{{ $mode }}{{ with $class }} {{ . }}{{ end }}"
      style="--img-row-height: {{ $h }}; --img-row-gap: {{ $gap }}; --img-row-scale: {{ $scale }};">
     {{- .Inner -}}
 </div>
+{{- if gt $rowH 0 -}}
+<style>@media (min-height: {{ mul $rowH 2 }}px) { #{{ $id }} { align-items: center; } }</style>
+{{- end -}}

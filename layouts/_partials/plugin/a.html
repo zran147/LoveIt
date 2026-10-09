@@ -1,5 +1,25 @@
 {{- $rel := "" -}}
-<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse .Destination).Host | or .Newtab }}{{ $rel = "noopener noreffer " }} target="_blank"{{ end }} rel="{{ $rel }}{{ with .Rel }}{{ . }}{{ end }}"{{ with .Class }} class="{{ . }}"{{ end }}>
+{{- $disabled := eq (lower (printf "%v" .Disabled)) "true" -}}
+{{- $class := .Class | default "" -}}
+{{- if $disabled -}}
+    {{- $class = trim (printf "%s link-disabled" $class) " " -}}
+{{- end -}}
+{{- $isExternal := or (urls.Parse .Destination).Host .Newtab -}}
+{{- if $isExternal -}}{{- $rel = "noopener noreffer" -}}{{- end -}}
+{{- with .Rel -}}{{- $rel = trim (printf "%s %s" $rel .) " " -}}{{- end -}}
+
+{{- $open := "<a" -}}
+{{- if $disabled -}}
+    {{- $open = printf "%s aria-disabled=\"true\"" $open -}}
+{{- else -}}
+    {{- $open = printf "%s href=\"%s\"" $open (.Destination | htmlEscape) -}}
+    {{- if $isExternal -}}{{- $open = printf "%s target=\"_blank\"" $open -}}{{- end -}}
+    {{- if $rel -}}{{- $open = printf "%s rel=\"%s\"" $open ($rel | htmlEscape) -}}{{- end -}}
+{{- end -}}
+{{- with .Title -}}{{- $open = printf "%s title=\"%s\"" $open (. | htmlEscape) -}}{{- end -}}
+{{- with $class -}}{{- $open = printf "%s class=\"%s\"" $open (. | htmlEscape) -}}{{- end -}}
+{{- $open = printf "%s>" $open -}}
+{{- $open | safeHTML -}}
     {{- with .Icon -}}
         {{- partial "plugin/icon.html" . -}}
     {{- end -}}

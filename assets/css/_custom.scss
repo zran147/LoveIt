@@ -160,6 +160,17 @@ $code-header-background-dark: null !default;
   }
 }
 
+// A bit more breathing room after code blocks.
+.single .content .code-block {
+  margin-bottom: 1.25rem;
+}
+
+// `link` shortcode with `disabled=true`: still hoverable (link colours), but
+// clicking does not navigate anywhere.
+.link-disabled {
+  cursor: pointer;
+}
+
 // More room before/after the mobile (static) table of contents.
 #toc-static {
   margin: 1.5rem 0;

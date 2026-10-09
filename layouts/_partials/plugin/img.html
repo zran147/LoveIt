@@ -33,6 +33,16 @@
 {{- $style := "" -}}
 {{- with $natW }}{{ $style = printf "--iw: %vpx" . }}{{ end -}}
 {{- with $natH }}{{ $style = printf "%s; --ih: %vpx" $style . }}{{ end -}}
+{{- /* effective (rendered) height — used by `image-row` to decide alignment */ -}}
+{{- $rh := $natH -}}
+{{- if $userH -}}
+    {{- $rh = $userH | replaceRE "[^0-9]" "" | int -}}
+{{- else if $userW -}}
+    {{- if and (gt $natW 0) (gt $natH 0) -}}
+        {{- $rh = int (div (mul ($userW | replaceRE "[^0-9]" "" | int) $natH) $natW) -}}
+    {{- end -}}
+{{- end -}}
+{{- if gt $rh 0 }}{{ $style = printf "%s; --rh: %dpx" $style $rh }}{{ end -}}
 {{- if $userW -}}
     {{- with ($userW | replaceRE "[^0-9]" "") -}}
         {{- $style = printf "%s; width: %vpx; height: auto" $style (int .) -}}
