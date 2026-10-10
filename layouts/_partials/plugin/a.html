@@ -8,6 +8,13 @@
 {{- if $isExternal -}}{{- $rel = "noopener noreffer" -}}{{- end -}}
 {{- with .Rel -}}{{- $rel = trim (printf "%s %s" $rel .) " " -}}{{- end -}}
 
+{{- $content := printf "%s" .Content -}}
+{{- if and $content (hasPrefix $content "http") (not (in $content "<")) -}}
+    {{- /* break "://" so Markdown (e.g. inside an admonition) does not auto-link
+           the URL text into a nested <a> */ -}}
+    {{- $content = replace $content "://" "://<wbr>" -}}
+{{- end -}}
+
 {{- $open := "<a" -}}
 {{- if $disabled -}}
     {{- $open = printf "%s aria-disabled=\"true\"" $open -}}
@@ -23,7 +30,5 @@
     {{- with .Icon -}}
         {{- partial "plugin/icon.html" . -}}
     {{- end -}}
-    {{- with .Content -}}
-        {{- . | safeHTML -}}
-    {{- end -}}
+    {{- $content | safeHTML -}}
 </a>
