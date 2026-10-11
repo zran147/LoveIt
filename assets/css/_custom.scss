@@ -20,6 +20,15 @@
   margin: 0;
 }
 
+// The lightbox anchor should cover only the image, not the empty space beside
+// it inside the figure / image-row (otherwise the blank area is clickable).
+.single .content figure a.lightgallery {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 // fit: every image is scaled by a common factor so the tallest image is
 // exactly `--img-row-height` tall; all aspect ratios are preserved. Images
 // wrap to the next line (instead of shrinking) when the row is too wide.
@@ -221,7 +230,9 @@ $code-header-background-dark: null !default;
   }
 }
 
-@media (max-width: 1280px) {
+// Desktop only: below 960px the theme widens the page (80% / 100% on phones),
+// and this override was making the article too narrow there.
+@media (min-width: 961px) and (max-width: 1280px) {
   .page {
     width: 60%;
   }
